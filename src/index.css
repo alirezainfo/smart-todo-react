@@ -1,3 +1,35 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+@font-face {
+  font-family: "IRANSansX";
+  font-style: normal;
+  font-weight: 500;
+
+  src: url("/public/IRANSansX-Medium.ttf") format("truetype");
+}
+
+body {
+  font-family: "IRANSansX", sans-serif;
+  margin: 0;
+
+  background-image: url("/background.svg");
+  background-size: cover; /* تصویر کل صفحه را پر می‌کند */
+  background-repeat: no-repeat; /* جلوگیری از تکرار تصویر */
+  background-position: center; /* تصویر در وسط صفحه قرار می‌گیرد */
+  background-attachment: fixed; /* تصویر ثابت می‌ماند وقتی صفحه اسکرول می‌شود */
+  min-height: 100vh; /* حداقل ارتفاع صفحه */
+  max-width: 1500px;
+  margin: auto;
+}
+
+.container {
+  width: max-content;
+}
+
+@media (min-width:768px){
+.container {
+  width: fit-content;
+}
+}
