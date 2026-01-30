@@ -15,11 +15,11 @@ body {
   margin: 0;
 
   background-image: url("/background.svg");
-  background-size: cover; /* تصویر کل صفحه را پر می‌کند */
-  background-repeat: no-repeat; /* جلوگیری از تکرار تصویر */
-  background-position: center; /* تصویر در وسط صفحه قرار می‌گیرد */
-  background-attachment: fixed; /* تصویر ثابت می‌ماند وقتی صفحه اسکرول می‌شود */
-  min-height: 100vh; /* حداقل ارتفاع صفحه */
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
   max-width: 1500px;
   margin: auto;
 }
