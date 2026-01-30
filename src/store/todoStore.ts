@@ -11,6 +11,8 @@ interface TodoState {
   todos: Todo[];
   filter: string;
   addTodo: (title: string) => void;
+  deleteTodo: (id: number) => void;
+  updateTodo: (id: number, title: string) => void;
 }
 
 export const useTodoState = create<TodoState>()(
@@ -22,7 +24,7 @@ export const useTodoState = create<TodoState>()(
       addTodo: (title: string) => {
         if (!title.trim()) return;
 
-        set((state) => ({
+        (set((state) => ({
           todos: [
             ...state.todos,
             {
@@ -32,9 +34,17 @@ export const useTodoState = create<TodoState>()(
             },
           ],
         })),
-        get()
+          get());
       },
+
+      deleteTodo: (id: number) => {
+        set((state) => ({
+          todos: state.todos.filter((item) => item.id !== id),
+        }));
+      },
+
+      updateTodo: (id: number, title: string) => {},
     }),
-    { name: "todo-storage" } 
-  )
+    { name: "todo-storage" },
+  ),
 );

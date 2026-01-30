@@ -5,6 +5,8 @@ import { useTodoState } from "./store/todoStore";
 
     const [title, setTitle] = useState("");
     const addTodo = useTodoState((states)=>(states.addTodo))
+    const deleteTodo = useTodoState((states)=>(states.deleteTodo))
+   
     const todos = useTodoState((states)=>(states.todos))
 
     function onSubmitHandler(e: any){
@@ -12,6 +14,10 @@ import { useTodoState } from "./store/todoStore";
       if(!title.trim()) return;
       addTodo(title)
       setTitle("")
+    }
+
+    function deleteHandler(id: number){
+      deleteTodo(id)
     }
 
     return (
@@ -66,7 +72,6 @@ import { useTodoState } from "./store/todoStore";
                 {todos.map((todo)=>(
                 <li key={todo.id} className="flex justify-between items-center gap-16 w-full">
                   <div className="flex gap-1">
-                    {/* <input type="checkbox" className="bg-inherit" /> */}
                     <span className="text-gray-300 text-xs md:text-sm">
                       {todo.title}
                     </span>
@@ -99,6 +104,7 @@ import { useTodoState } from "./store/todoStore";
                       stroke-linecap="round"
                       stroke-linejoin="round"
                       className="lucide lucide-trash-icon lucide-trash cursor-pointer"
+                      onClick={() => deleteHandler(todo.id)}
                     >
                       <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
                       <path d="M3 6h18" />
